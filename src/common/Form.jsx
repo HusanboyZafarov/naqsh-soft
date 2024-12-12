@@ -1,9 +1,8 @@
 const Form = ({ isActive, handleActive }) => {
   const options = [
-    { id: 1, value: "", selected: true },
-    { id: 2, value: "", selected: true },
-    { id: 3, value: "", selected: true },
-    { id: 4, value: "", selected: true },
+    { id: 1, value: "for-business", label: "Biznes uchun" },
+    { id: 2, value: "for-company", label: "Korxona uchun" },
+    { id: 3, value: "for-individuals", label: "YaTT uchun" },
   ]
 
   return (
@@ -22,14 +21,18 @@ const Form = ({ isActive, handleActive }) => {
 
       <input type="number" name="number" placeholder="Telefon raqam" />
 
-      <select name="tarif" id="tarif">
-        <option
-          value="Dastur uchun tarif"
-          selected
-          style={{ display: "none" }}
-        >
+      <select name="tarif" id="tarif" defaultValue="">
+        <option value="" disabled>
           Dastur uchun tarif
         </option>
+        {options.map((option) => (
+          <option
+            key={option.id}
+            value={option.value}
+          >
+            {option.label}
+          </option>
+        ))}
       </select>
 
       <textarea

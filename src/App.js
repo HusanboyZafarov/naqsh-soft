@@ -4,6 +4,8 @@ import Closer from "./common/Closer";
 import { useState } from "react";
 import Hero from "./components/Hero";
 import Second from "./components/Second";
+import Price from "./components/Price";
+import Contact from "./components/Contact";
 
 function App() {
   const [isActive, setActive] = useState(false);
@@ -48,6 +50,84 @@ function App() {
     },
   ]);
 
+  const [prices, setPrice] = useState([
+    {
+      id: 1,
+      title: "Start",
+      desc: "Kichik bizneslar uchun",
+      cost: 9,
+      allowance: [
+        {
+          id: 1,
+          label: "Barcha imkoniyatlaridan foydalanish",
+        },
+        {
+          id: 2,
+          label: "O’rgatuvchi yordamchi",
+        },
+        {
+          id: 3,
+          label: "Tovarlarni kiritishda cheklov yo’q",
+        },
+        {
+          id: 4,
+          label: "Doimiy yordam",
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: "Super",
+      desc: "Ishlab chiqarish, katta bizneslar uchun",
+      cost: 18,
+      allowance: [
+        {
+          id: 1,
+          label: "Barcha imkoniyatlaridan foydalanish",
+        },
+        {
+          id: 2,
+          label: "O’rgatuvchi yordamchi",
+        },
+        {
+          id: 3,
+          label: "Tovarlarni kiritishda cheklov yo’q",
+        },
+        {
+          id: 4,
+          label: "Doimiy yordam",
+        },
+      ],
+    },
+  ]);
+
+  const [contacts, setContact] = useState([
+    {
+      id: 1,
+      icon: "bi-envelope-open",
+      title: "Email",
+      desc: "Elektron xabarlar uchun",
+      link: "support@naqshsoft.uz",
+      link_display: "mailto:support@naqshsoft.uz",
+    },
+    {
+      id: 2,
+      icon: "bi-telephone",
+      title: "Telefon",
+      desc: "Qo’ng’iroqlar uchun",
+      link: "tel:+998 99 903 44 40",
+      link_display: "",
+    },
+    {
+      id: 3,
+      icon: "bi-geo-alt",
+      title: "Manzil",
+      desc: "Uchrashuvlar uchun",
+      link: "https://www.google.com.bo/maps/place/Robocode+IT+Academy/@40.7468711,72.344796,220m/data=!3m2!1e3!4b1!4m6!3m5!1s0x38bced7b6cf5df29:0xace59ec7e44d0e57!8m2!3d40.7469172!4d72.3452063!16s%2Fg%2F11k3wqpkn9",
+      link_display: "Andijon shahar M.Saidov ko’chasi 6-uy",
+    },
+  ]);
+
   const handleActive = () => {
     setActive(!isActive);
   };
@@ -61,6 +141,8 @@ function App() {
       <main>
         <Hero handleActive={handleActive} />
         <Second oppos={oppos} />
+        <Price prices={prices} handleActive={handleActive} />
+        <Contact contacts={contacts} />
       </main>
     </>
   );
