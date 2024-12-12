@@ -1,5 +1,5 @@
-const HeaderButton = ({ label, handleActive }) => {
+const Button = ({ label, handleActive }) => {
   return <button onClick={handleActive} className="form_opener">{label}</button>;
 };
 
-export default HeaderButton;
+export default Button;
