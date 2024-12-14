@@ -1,7 +1,7 @@
-const Closer = ({ isActive, handleActive }) => {
+const Closer = ({ isActive, handleCloseActive }) => {
   return (
     <div
-      onClick={handleActive}
+      onClick={handleCloseActive}
       className={`closer ${isActive ? "changed" : ""}`}
     ></div>
   );

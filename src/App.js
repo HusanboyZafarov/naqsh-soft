@@ -1,6 +1,5 @@
 import Header from "./components/Header";
 import Form from "./common/Form";
-import Closer from "./common/Closer";
 import { useState } from "react";
 import Hero from "./components/Hero";
 import Second from "./components/Second";
@@ -132,11 +131,28 @@ function App() {
     setActive(!isActive);
   };
 
+  const handleNavActive = () => {
+    setNavActive(!navActive);
+  };
+
+  const activeSide = () => {
+    return navActive | isActive;
+  };
+
+  const closer = () => {
+    return navActive ? handleNavActive(!isActive) : handleActive(!navActive);
+  };
+
   return (
     <>
-      <Header handleActive={handleActive} />
+      <Header
+        handleActive={handleActive}
+        navActive={navActive}
+        handleNavActive={handleNavActive}
+        activeSide={activeSide}
+        closer={closer}
+      />
       <Form isActive={isActive} handleActive={handleActive} />
-      <Closer isActive={isActive} handleActive={handleActive} />
 
       <main>
         <Hero handleActive={handleActive} />

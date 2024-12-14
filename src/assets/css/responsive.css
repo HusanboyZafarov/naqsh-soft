@@ -33,6 +33,7 @@
 
   .header_inner_list.opened {
     right: 0;
+    z-index: 110;
   }
 
   .header_inner_item {

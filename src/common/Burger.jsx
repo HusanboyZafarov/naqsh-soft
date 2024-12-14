@@ -1,6 +1,6 @@
-const Burger = () => {
+const Burger = ({ handleNavActive }) => {
   return (
-    <div className="burger">
+    <div className="burger" onClick={handleNavActive}>
       <div className="line"></div>
       <div className="line"></div>
       <div className="line"></div>
